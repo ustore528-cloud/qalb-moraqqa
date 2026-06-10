@@ -1,0 +1,916 @@
+/* ── App shell ── */
+
+.app {
+  overflow-x: hidden;
+  background: var(--bg-main);
+}
+
+/* ── Typography utilities ── */
+
+.hl {
+  color: var(--title-burgundy);
+  font-weight: 600;
+}
+
+.hl--gold {
+  color: var(--author-gold);
+}
+
+.pill-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--badge-text);
+  background: rgba(184, 134, 59, 0.1);
+  border: 1px solid rgba(184, 134, 59, 0.28);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: 0.2px;
+}
+
+.quote-block {
+  margin: 0;
+  background: linear-gradient(135deg, #fff8ef, #fff3e4);
+  border: 1px solid var(--quote-border);
+  border-inline-start: 4px solid var(--author-gold);
+  border-radius: 20px;
+  padding: 18px;
+  color: var(--text-main);
+  box-shadow: var(--shadow-quote);
+}
+
+.quote-block--hero {
+  margin-bottom: 18px;
+}
+
+.quote-block--question + .quote-block--question {
+  margin-top: 14px;
+}
+
+.quote-block--question p {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-main);
+}
+
+.prose-quote {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--text-main);
+  text-align: right;
+}
+
+/* ── Buttons (mobile-first) ── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.btn--primary,
+.btn--whatsapp {
+  background: var(--cta);
+  color: var(--text-on-cta);
+  box-shadow: 0 4px 18px rgba(160, 24, 42, 0.26);
+}
+
+.btn--primary:hover,
+.btn--whatsapp:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(189, 26, 48, 0.32);
+}
+
+.btn--primary svg,
+.btn--whatsapp svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.btn--ghost {
+  background: #fff8ef;
+  color: var(--title-burgundy);
+  border: 1.5px solid var(--author-gold);
+}
+
+.btn--ghost:hover {
+  background: #fff3e4;
+  border-color: var(--title-burgundy);
+  color: var(--cta);
+}
+
+.btn--compact {
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.btn--large {
+  padding: 15px 32px;
+  font-size: 16px;
+}
+
+/* ── Header (mobile-first) ── */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 253, 248, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 10px rgba(19, 11, 11, 0.05);
+}
+
+.header__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 0 16px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+}
+
+.header__logo-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--title-burgundy);
+  line-height: 1.2;
+}
+
+.header__logo-author {
+  font-size: 11px;
+  color: var(--author-gold);
+  font-weight: 500;
+}
+
+.header__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__cta-mobile {
+  flex-shrink: 0;
+}
+
+.header__nav {
+  position: fixed;
+  inset-inline: 0;
+  top: var(--header-height);
+  background: rgba(255, 253, 248, 0.98);
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s, opacity 0.3s;
+  display: flex;
+}
+
+.header__nav--open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header__links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+.header__links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  padding: 6px 0;
+}
+
+.header__links a:hover {
+  color: var(--title-burgundy);
+}
+
+.header__cta {
+  width: 100%;
+  text-align: center;
+  padding: 13px;
+}
+
+.header__menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.header__menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--title-burgundy);
+  border-radius: 1px;
+}
+
+/* ── Hero (mobile-first) ── */
+
+.hero {
+  position: relative;
+  padding: 32px 20px 48px;
+  overflow: hidden;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(123, 16, 32, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(184, 134, 45, 0.07) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-paper) 0%, var(--bg-main) 55%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.hero__intro {
+  width: 100%;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 10vw, 42px);
+  color: var(--title-burgundy);
+  line-height: 1.15;
+  text-shadow: var(--shadow-title);
+}
+
+.hero__author {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 4.5vw, 22px);
+  color: var(--author-gold);
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+.hero__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px auto 0;
+  max-width: 220px;
+}
+
+.hero__divider span:not(.hero__divider-icon) {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--gold-soft), transparent);
+}
+
+.hero__divider-icon {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.hero__cover {
+  flex-shrink: 0;
+}
+
+.hero__body {
+  width: 100%;
+  max-width: var(--prose-width);
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 5vw, 24px);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.hero__desc {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.9;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.hero__actions .btn {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ── Book cover (circular) ── */
+
+.book-cover-ring {
+  width: 260px;
+  height: 260px;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--author-gold) 0%, var(--title-burgundy) 45%, var(--gold-soft) 100%);
+  box-shadow: var(--shadow-cover);
+  flex-shrink: 0;
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.14);
+}
+
+.book-cover--placeholder {
+  background: linear-gradient(160deg, var(--bg-paper) 0%, var(--bg-section) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover__placeholder-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.book-cover__placeholder-inner p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--title-burgundy);
+}
+
+.book-cover__ornament {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* ── Sections (mobile-first) ── */
+
+.section {
+  padding: 56px 20px;
+  background: var(--bg-section);
+}
+
+.section--alt {
+  background: var(--bg-paper);
+  border-block: 1px solid var(--border);
+}
+
+.section__inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section__ornament {
+  display: block;
+  color: var(--author-gold);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 6vw, 30px);
+  color: var(--title-burgundy);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.section__line {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-inline: auto;
+  background: var(--author-gold);
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+.section__body {
+  max-width: var(--prose-width);
+  margin-inline: auto;
+}
+
+.section__closing {
+  margin-top: 28px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.85;
+  text-align: center;
+}
+
+.prose p + p {
+  margin-top: 20px;
+}
+
+.prose p {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.9;
+  text-align: right;
+}
+
+/* ── Before Read ── */
+
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Why Read cards ── */
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.reason-card {
+  position: relative;
+  padding: 24px 22px 22px;
+  background: linear-gradient(160deg, #fffdf8 0%, #fff8f0 100%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.reason-card:hover {
+  border-color: rgba(184, 134, 59, 0.45);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.reason-card__dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--author-gold);
+}
+
+.reason-card__title {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--title-burgundy);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.reason-card__text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+/* ── Order CTA ── */
+
+.order-cta {
+  padding: 56px 20px;
+  background: var(--bg-main);
+}
+
+.order-cta__inner {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(165deg, var(--title-burgundy) 0%, #5a0c18 100%);
+  border: 1px solid rgba(216, 181, 109, 0.3);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.order-cta__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, rgba(216, 181, 109, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.order-cta__ornament {
+  display: block;
+  color: var(--gold-soft);
+  font-size: 14px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.order-cta__title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 6vw, 32px);
+  color: var(--text-on-cta);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.order-cta__text {
+  font-size: 16px;
+  color: rgba(255, 253, 248, 0.85);
+  line-height: 1.9;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.order-cta__inner .btn {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: var(--text-on-cta);
+  color: var(--title-burgundy);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.order-cta__inner .btn:hover {
+  background: var(--gold-soft);
+  color: var(--dark);
+}
+
+/* ── Footer ── */
+
+.footer {
+  padding: 44px 20px 36px;
+  background: var(--dark);
+  color: rgba(255, 253, 248, 0.8);
+}
+
+.footer__inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.footer__title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  color: var(--gold-soft);
+  margin-bottom: 4px;
+}
+
+.footer__author {
+  font-size: 15px;
+  color: var(--author-gold);
+  margin-bottom: 4px;
+}
+
+.footer__genre {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.footer__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 220px;
+  margin: 0 auto 22px;
+}
+
+.footer__divider span:not(.footer__ornament) {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
+}
+
+.footer__ornament {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.footer__tagline {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--text-on-cta);
+  line-height: 1.75;
+  max-width: 440px;
+  margin-inline: auto;
+  opacity: 0.9;
+}
+
+/* ── Floating WhatsApp ── */
+
+.floating-whatsapp {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  inset-inline-start: 16px;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+}
+
+.floating-whatsapp svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ── Tablet (min-width: 481px) ── */
+
+@media (min-width: 481px) {
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .quote-block {
+    padding: 22px 24px;
+  }
+
+  .quote-block--question p {
+    font-size: 17px;
+  }
+}
+
+/* ── Desktop (min-width: 769px) ── */
+
+@media (min-width: 769px) {
+  .header__inner {
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+  }
+
+  .header__logo-title {
+    font-size: 22px;
+  }
+
+  .header__logo-author {
+    font-size: 12px;
+  }
+
+  .header__toolbar {
+    display: none;
+  }
+
+  .header__nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header__links {
+    flex-direction: row;
+    gap: 22px;
+    width: auto;
+  }
+
+  .header__links a {
+    font-size: 14px;
+  }
+
+  .header__cta {
+    width: auto;
+    padding: 10px 18px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .hero {
+    padding: 56px 32px 72px;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'intro cover'
+      'body cover';
+    gap: 20px 48px;
+    text-align: start;
+    align-items: start;
+  }
+
+  .hero__intro {
+    grid-area: intro;
+  }
+
+  .hero__cover {
+    grid-area: cover;
+    align-self: center;
+  }
+
+  .hero__body {
+    grid-area: body;
+    max-width: none;
+  }
+
+  .hero__title {
+    font-size: clamp(48px, 5vw, 58px);
+  }
+
+  .hero__headline {
+    font-size: clamp(22px, 2.2vw, 26px);
+  }
+
+  .hero__desc {
+    font-size: 17px;
+    margin-bottom: 28px;
+    text-align: right;
+  }
+
+  .quote-block {
+    padding: 24px 28px;
+  }
+
+  .prose-quote {
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .section__title {
+    font-size: clamp(28px, 3vw, 34px);
+  }
+
+  .hero__divider {
+    margin-inline: 0;
+    max-width: 260px;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .hero__actions .btn {
+    width: auto;
+    max-width: none;
+  }
+
+  .book-cover-ring {
+    width: 300px;
+    height: 300px;
+  }
+
+  .section {
+    padding: 88px 32px;
+  }
+
+  .section__header {
+    margin-bottom: 40px;
+  }
+
+  .section__inner {
+    max-width: var(--max-width);
+  }
+
+  .prose p {
+    font-size: 17px;
+    text-align: justify;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .reason-card {
+    padding: 28px 24px 24px;
+  }
+
+  .reason-card__title {
+    font-size: 18px;
+  }
+
+  .reason-card__text {
+    font-size: 16px;
+  }
+
+  .order-cta {
+    padding: 88px 32px;
+  }
+
+  .order-cta__inner {
+    padding: 52px 48px;
+  }
+
+  .order-cta__inner .btn {
+    width: auto;
+    max-width: none;
+  }
+
+  .footer {
+    padding: 56px 32px 44px;
+  }
+
+  .floating-whatsapp {
+    display: none;
+  }
+}
+
+/* ── Large desktop (min-width: 1024px) ── */
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    gap: 24px 56px;
+  }
+
+  .book-cover-ring {
+    width: 320px;
+    height: 320px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  }
+}
