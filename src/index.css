@@ -5,35 +5,40 @@
 }
 
 :root {
-  --bg-main: #faf6ef;
-  --bg-section: #fffdf8;
-  --bg-paper: #f4e8d8;
-  --bg-card: #fff8f0;
-  --text-main: #2a1514;
-  --text-body: #5c4a43;
-  --text-muted: #6b4a3f;
-  --title-burgundy: #8b1724;
-  --author-gold: #b8863b;
-  --badge-text: #8b5e2a;
-  --cta: #a0182a;
-  --cta-hover: #bd1a30;
-  --gold: #b8863b;
-  --gold-soft: #d8b56d;
-  --border: #e1cdb4;
-  --quote-border: #e0c8a8;
-  --dark: #130b0b;
-  --text-on-cta: #fff8ef;
-  --shadow-soft: 0 4px 20px rgba(19, 11, 11, 0.07);
-  --shadow-card: 0 8px 28px rgba(19, 11, 11, 0.1);
-  --shadow-quote: 0 18px 45px rgba(93, 45, 35, 0.1);
-  --shadow-cover: 0 12px 40px rgba(139, 23, 36, 0.15);
-  --shadow-title: 0 8px 24px rgba(139, 23, 36, 0.12);
-  --font-body: 'Noto Naskh Arabic', 'Amiri', serif;
-  --font-display: 'Amiri', 'Reem Kufi', serif;
-  --font-heading: 'Reem Kufi', 'Amiri', serif;
+  --bg-main: #f8f5ef;
+  --bg-section: #ffffff;
+  --bg-alt: #f8f5ef;
+  --bg-card: #fffdf8;
+  --text-main: #241816;
+  --text-paragraph: #4b403c;
+  --text-muted: #5f5550;
+  --red: #a31224;
+  --red-dark: #7f0e1c;
+  --gold: #d0a436;
+  --gold-soft: #e0c15b;
+  --earth: #8a6132;
+  --earth-dark: #5e3f24;
+  --hero-brown: #9a6a37;
+  --text-hero: #f8f5ef;
+  --border: rgba(208, 164, 54, 0.28);
+  --border-light: #e8e1d8;
+  --text-on-cta: #f8f5ef;
+  --title-burgundy: #a31224;
+  --author-gold: #d0a436;
+  --cta: #a31224;
+  --cta-hover: #7f0e1c;
+  --text-body: #4b403c;
+  --badge-text: #e0c15b;
+  --shadow-soft: 0 4px 20px rgba(36, 24, 22, 0.08);
+  --shadow-card: 0 8px 28px rgba(36, 24, 22, 0.1);
+  --shadow-quote: 0 4px 18px rgba(36, 24, 22, 0.06);
+  --shadow-promo: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --font-body: 'Tajawal', system-ui, sans-serif;
+  --font-display: 'Amiri', 'Tajawal', serif;
+  --font-heading: 'Tajawal', system-ui, sans-serif;
   --max-width: 1120px;
   --content-width: 960px;
-  --prose-width: 620px;
+  --prose-width: 720px;
   --header-height: 60px;
 }
 
@@ -46,7 +51,8 @@ body {
   margin: 0;
   font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.9;
+  font-weight: 400;
+  line-height: 1.95;
   color: var(--text-main);
   background: var(--bg-main);
   -webkit-font-smoothing: antialiased;
@@ -60,9 +66,9 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.35;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.4;
   margin: 0;
 }
 
