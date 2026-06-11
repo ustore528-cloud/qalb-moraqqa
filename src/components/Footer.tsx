@@ -17,6 +17,10 @@ export default function Footer() {
         <p className="footer__tagline">
           أبوابٌ مغلقة فُتحت أخيرًا، وجرحٌ نجا ليحكي.
         </p>
+
+        <p className="footer__credit" dir="ltr">
+          by 2in
+        </p>
       </div>
     </footer>
   )

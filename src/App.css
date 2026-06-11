@@ -664,6 +664,16 @@
   opacity: 0.9;
 }
 
+.footer__credit {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: #8b5e2a;
+  opacity: 0.75;
+  margin-top: 16px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
 /* ── Floating WhatsApp ── */
 
 .floating-whatsapp {
