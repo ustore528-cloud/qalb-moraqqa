@@ -1,6 +1,6 @@
-export const WHATSAPP_NUMBER = '972584205018'
+export const PHONE_DISPLAY = '055-940-5609'
+export const PHONE_NUMBER = '0559405609'
+export const PHONE_URL = `tel:${PHONE_NUMBER}`
 
-export const WHATSAPP_TEXT =
-  'مرحبًا، أريد طلب رواية قلب مرقّع للكاتبة بيان شراونة.'
-
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`
+export const WHATSAPP_NUMBER = '972559405609'
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`

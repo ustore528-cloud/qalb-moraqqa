@@ -1,4 +1,4 @@
-import { WHATSAPP_URL } from '../constants'
+import { PHONE_DISPLAY, PHONE_URL, WHATSAPP_URL } from '../constants'
 
 export default function OrderCTA() {
   return (
@@ -9,7 +9,10 @@ export default function OrderCTA() {
         <h2 className="order-cta__title">جاهز لتقرأ الحكاية؟</h2>
         <p className="order-cta__text">
           تواصل الآن عبر واتساب واطلب نسختك من رواية «قلب مرقّع» للكاتبة
-          بيان شراونة.
+          بيان شراونة. أو اتصل على{' '}
+          <a href={PHONE_URL} dir="ltr">
+            {PHONE_DISPLAY}
+          </a>
         </p>
         <a
           href={WHATSAPP_URL}
